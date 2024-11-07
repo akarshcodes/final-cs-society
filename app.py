@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Sample data for team members
+
 team_members = [
     {
         'name': 'Lim Qian Yun',
@@ -674,7 +674,6 @@ team_members = [
         }
     }
     
-    # Add 60 more team members here...
 ]
 
 @app.route('/')
