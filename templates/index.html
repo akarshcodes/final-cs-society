@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V Hack USM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <img src="{{ url_for('static', filename='images/VHack_Logo.png') }}" alt="V Hack Logo" class="logo">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Tentative</a>
+            <a href="#">Speakers</a>
+            <a href="#">Judges</a>
+            <a href="#">Mentors</a>
+            <a href="#">Partners</a>
+            <a href="#">FAQs</a>
+            <a href="#">Rules</a>
+            <a href="#">Organising Team</a>
+            <a href="#" class="login-button">Log In</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Meet the Team</h1>
+
+        <!-- Filter Section -->
+        <div class="filter-buttons">
+            <button>ALL</button>
+            <button>Top Committee</button>
+            <button>Programme</button>
+            <button>PR</button>
+            <button>Sponsorship</button>
+            <button>Logistics</button>
+            <button>Technical</button>
+            <button>Design and Multimedia</button>
+        </div>
+
+        <!-- Team Members -->
+        <div class="team-container">
+            {% for member in team_members %}
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/' + member['image']) }}" alt="{{ member['name'] }}">
+                <h3>{{ member['name'] }}</h3>
+                <p>{{ member['department'] }} - {{ member['role'] }}</p>
+                <div class="social-links">
+                    <a href="{{ member['social_links']['instagram'] }}"><img src="{{ url_for('static', filename='images/ig.png') }}" alt="Instagram"></a>
+                    <a href="{{ member['social_links']['facebook'] }}"><img src="{{ url_for('static', filename='images/fbb.png') }}" alt="Facebook"></a>
+                    <a href="{{ member['social_links']['linkedin'] }}"><img src="{{ url_for('static', filename='images/ln.png') }}" alt="LinkedIn"></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
